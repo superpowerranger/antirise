@@ -1,0 +1,226 @@
+@import "_common.scss"; 
+  
+
+/*--------------------------------------------------------------
+#  header 
+--------------------------------------------------------------*/
+ 
+
+header{
+  .navbar{
+    z-index: 1049;
+    .navbar-toggler{
+      border-color: $blue; 
+      padding: 0;
+      color: $white;
+      background-color: $blue;
+      margin-right: 100px;  
+      position: relative;
+      @include size(40px);
+      // @include rounded(100%);
+      div{
+        width: 18px;
+        height: 2px;
+        background-color: $white;
+        display: inline-block;
+        @include position(absolute, 48% 10px null null);
+        &:before{
+          width: 18px;
+          content: "";
+          height: 2px;
+          background-color: $white;
+          display: inline-block;
+          @include position(absolute, -6px 0 null null); 
+        }
+        &:after{
+          width: 18px;
+          content: "";
+          height: 2px;
+          background-color: $white;
+          display: inline-block;
+          @include position(absolute, 6px 0 null null); 
+        }
+      }
+    }
+    .navbar-brand{
+      font-family: ethnocentric;
+    }
+  }
+  .sidebar{
+    height: 100vh;
+    top: 0;
+    position: absolute;
+    .sidebar-content{
+      display: none;
+      .nav{
+        width: 100%;
+        .nav-link{
+          width: 100%;
+          font-size: 2rem;
+          color: $black;
+          text-align: center;
+          text-transform: uppercase;
+          font-weight: bold;
+          color:$white;
+        }
+      }
+    }
+
+    &:before{
+      content:" ";
+      background-color: $blue;
+      z-index: 1048;
+      @include transition(all 0.5s);
+      @include position(absolute, 24px null null 24px);
+      @include size(40px);
+      // @include rounded(100%);
+    }
+  }
+  &.open{
+    .navbar{
+      .navbar-toggler{
+        border-color: $white;  
+        color: $blue;
+        background-color: $white;
+        div{ 
+          background-color: $blue; 
+          &:before{
+            content: "";
+            background-color: $blue; 
+          }
+          &:after{
+            background-color: $blue; 
+          }
+        }
+      }
+      // .btn-contact{
+      //   display: none;
+      // }
+      .navbar-brand{
+        color: $white;
+      }
+      .btn-primary{
+        border-color: $white;
+        &:hover{
+          background-color: $white;
+          color:$blue;
+        }
+      }
+    }
+    .sidebar{
+      width: 100%;
+      .sidebar-content{
+        display: block;
+        .btn{
+          color: $white;
+        }
+      }
+      .social-contact{
+        a{
+          color: $white;
+        }
+      }
+      &:before{
+        content:" ";
+        background-color: $blue; 
+        @include transform(scale(100));
+        @include position(absolute, 0);
+        z-index: -1;
+      }
+    }
+  }
+}
+
+
+/*--------------------------------------------------------------
+#  home page
+--------------------------------------------------------------*/
+ 
+
+// SLIDER
+$colors: $white, $blue, $lightgray, $black;
+$max: length($colors);
+$dash: 40;
+$dash-gap: 10;
+$dash-space: $dash * ($max - 1) + $dash-gap * $max;
+$time: 10s;
+$time-step: $time/$max;
+
+.text {
+  fill: none;
+  stroke-width: 1;
+  stroke-linejoin: round;
+  stroke-dasharray: $dash $dash-space;
+  stroke-dashoffset: 0;
+  -webkit-animation: stroke $time infinite linear;
+  animation: stroke $time infinite linear;
+  
+  @for $item from 1 through $max {
+    &:nth-child(#{$max}n + #{$item}) {
+      $color: nth($colors, $item);
+      stroke: $color;
+      -webkit-animation-delay: -($time-step * $item);
+      animation-delay: -($time-step * $item);
+    }
+  }
+}
+
+@-webkit-keyframes stroke {
+  100% {
+    stroke-dashoffset: -($dash + $dash-gap) * $max;
+  }
+}
+
+@keyframes stroke {
+  100% {
+    stroke-dashoffset: -($dash + $dash-gap) * $max;
+  }
+}
+
+.line {
+  fill: none;
+  stroke-width: 1;
+  stroke-linejoin: round;
+  stroke-dasharray: $dash $dash-space;
+  stroke-dashoffset: 0;
+  -webkit-animation: stroke $time infinite linear;
+  animation: linefill $time infinite linear;
+  
+  @for $item from 1 through $max {
+    &:nth-child(#{$max}n + #{$item}) {
+      $color: nth($colors, $item);
+      stroke: $color;
+      -webkit-animation-delay: -($time-step * $item);
+      animation-delay: -($time-step * $item);
+    }
+  }
+}
+
+@-webkit-keyframes linefill {
+  100% {
+    stroke-dashoffset: -($dash + $dash-gap) * $max;
+  }
+}
+
+@keyframes linefill {
+  100% {
+    stroke-dashoffset: -($dash + $dash-gap) * $max;
+  }
+}
+
+/* Other styles */
+
+.slider{
+  // background: #111;
+  background-size: .1em 100%;
+  font: 6em/1 Open Sans, ethnocentric;
+  text-transform: uppercase;
+  margin: 0;
+  height: 85vh;
+}
+
+svg {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+}
