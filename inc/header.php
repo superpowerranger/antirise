@@ -17,22 +17,44 @@
     <link rel="stylesheet" type="text/css" href="plugins/owl-carousel/css/owl.carousel.min.css">
     <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.8.1/css/all.css">
     <link rel="stylesheet" href="css/custom.css">
-    <title>Delhi Craniofacial Surgery</title>
+    <title>ANTIRISE</title>
   </head>
   <body>
+    <div class="custom-loader"> 
+      <div class="arrow">
+        <span class="arrow-right"></span>
+      </div>
+      <div class="arrow">
+        <span class="arrow-right"></span>
+      </div> 
+      <div class="arrow">
+        <span class="arrow-right"></span>
+      </div>
+      <div class="arrow">
+        <span class="arrow-right"></span>
+      </div>
+      <div class="arrow">
+        <span class="arrow-right"></span>
+      </div>  
+    </div>
     <!--HEADER -->
     <header class="fixed-top" id="header">
       <nav class="navbar navbar-light justify-content-between p-4">
         <div class="">
-          <button class="navbar-toggler" onclick="menu()">
+          <button class="navbar-toggler rounded-0" onclick="menu()">
+            <div></div>
+            <div></div>
             <div></div>
           </button>
         </div>
         <div class="logo">
-          <a class="navbar-brand" href="#">ANTIRISE</a>
+          <a class="navbar-brand mr-0" href="#">ANTIRISE</a>
         </div>
         <div class="btn-contact">
-          <a class="btn btn-primary rounded-0 px-4 text-uppercase font-weight-bold" href="contact">Contact</a> 
+          <a class="btn btn-primary rounded-0 px-4 text-uppercase font-weight-bold py-2" href="contact">
+            <span class="d-none d-md-block">Start Project</span>
+            <span class="d-block d-md-none">Contact</span>
+          </a> 
         </div>
       </nav>
       <div class="sidebar d-flex justify-content-center">
@@ -59,7 +81,7 @@
             </div>
             <div>
               <div class="d-flex justify-content-between align-items-center">
-                <div class="">
+                <div class="mx-auto mx-md-0">
                   <div class="d-inline-block">
                       <a  href="#" class="social-contact custom-social-icon d-flex justify-content-center align-items-center">
                         <i class="fab fa-facebook-f"></i>
@@ -86,7 +108,7 @@
                       </a>
                   </div>
                 </div>
-                <div class="">
+                <div class="d-none d-md-block">
                   <a class="btn" href="tel:+91 9625906313">+91 9625906313</a>
                   <a class="btn" href="mailto:antiriseindia@gmail.com">antiriseindia@gmail.com</a>
                 </div>
